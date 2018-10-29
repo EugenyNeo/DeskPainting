@@ -1,0 +1,112 @@
+package MyVecorDraw;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class PMenuBar extends JMenuBar
+{
+	//PData pp = null;
+	
+	public PMenuBar(PCommand cmd )
+	{
+	    setBackground(new Color(255,150,50));
+		// Создание выпадающего меню
+        JMenu file = new JMenu("File");
+        // Пункт меню "Открыть" с изображением
+        JMenuItem open = new JMenuItem("Open");
+        // Добавим в меню пункта open
+        file.add(open);
+        JMenuItem save = new JMenuItem("Save");
+        // Добавление разделителя
+        //file.addSeparator();
+        file.add(save);
+		add(file);
+		// ----------------------------------------------
+		// меню type
+	    //  ---------------------------------------------	
+		JMenu type = new JMenu("Type");
+	    JMenuItem curves= new JMenuItem("Curves");
+	    JMenuItem rectangle = new JMenuItem("Rectangle");
+	    JMenuItem roundRect = new JMenuItem("RoundRect");
+	    JMenuItem elipse = new JMenuItem("Elipse");
+	    JMenuItem line = new JMenuItem("Line");    
+	    
+	    curves.setActionCommand("curve");
+	    rectangle.setActionCommand("rectangle");
+	    roundRect.setActionCommand("roundRect");
+	    elipse.setActionCommand("ellipse");
+	    line.setActionCommand("line");
+	    
+	    curves.addActionListener(cmd.aType);
+	    rectangle.addActionListener(cmd.aType);
+	    roundRect.addActionListener(cmd.aType);
+	    elipse.addActionListener(cmd.aType);
+	    line.addActionListener(cmd.aType);
+
+	    
+	    type.add(curves);
+	    type.add(rectangle);
+	    type.add(roundRect);
+	    type.add(elipse);
+	    type.add(line);	
+	    
+	    add(type);
+	    
+		// ----------------------------------------------
+		// меню color
+	    //  ---------------------------------------------
+	    
+		JMenu clr = new JMenu("Color");
+		
+		JMenuItem rd= new JMenuItem("Red");
+		JMenuItem yll = new JMenuItem("Yello");
+		JMenuItem grn = new JMenuItem("Green");
+		JMenuItem frClr = new JMenuItem("Color choise");
+		
+		rd.setActionCommand("red");
+		yll.setActionCommand("yello");
+		grn.setActionCommand("green");
+		frClr.setActionCommand("color choise");
+		
+		rd.addActionListener(cmd.aColor);
+		yll.addActionListener(cmd.aColor);
+		grn.addActionListener(cmd.aColor);
+		frClr.addActionListener(cmd.aColor);
+	    
+	    clr.add(rd);
+	    clr.add(yll);
+	    clr.add(grn);
+	    clr.add(frClr);
+	    
+	    add(clr);
+	    
+		JMenu wdth = new JMenu("Width");
+		
+	    JMenuItem wdth5= new JMenuItem("5 pt");
+	    JMenuItem wdth10 = new JMenuItem("10 pt");
+	    JMenuItem wdth15 = new JMenuItem("15 pt");
+	    
+	    wdth5.setActionCommand("Lines5");
+	    wdth10.setActionCommand("Lines10");
+	    wdth15.setActionCommand("Lines15");
+		
+		wdth5.addActionListener(cmd.aWidth);
+		wdth10.addActionListener(cmd.aWidth);
+		wdth15.addActionListener(cmd.aWidth);
+	    
+	    wdth.add(wdth5);
+	    wdth.add(wdth10);
+	    wdth.add(wdth15);
+	    
+	    add(wdth);
+	}
+	
+
+   
+}

@@ -1,0 +1,136 @@
+package MyVecorDraw;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JComboBox;
+
+public class PCommand 
+{
+	 
+	PData data = PData.getInstace();
+	
+	ActionWidth aWidth = new ActionWidth();
+	ActionColor aColor = new ActionColor();
+	ActionType aType = new ActionType();
+	//ActionCombobox aCombo = new ActionCombobox();
+	
+	//ActionOpen aOpen = new ActionOpen();
+	//ActionSave aSave = new ActionSave();	
+	class ActionColor implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			String str = e.getActionCommand();
+					switch(str)
+				{
+					case "red": data.setColor(Color.red); break;
+					case "green": data.setColor( Color.green);break;
+					case "yellow": data.setColor(Color.yellow);break;
+					default: data.setColor(Color.black);
+				}
+			
+		}
+	}
+	 class ActionWidth implements ActionListener
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				String str = e.getActionCommand();
+
+						switch(str)
+					{
+						case "Lines5": data.setWidth(5); break;
+						case "Lines10": data.setWidth(10);break;
+						case "Lines15": data.setWidth(15);break;
+						default: data.setWidth(1);
+					}
+				
+			}
+		}
+	 class ActionType implements ActionListener
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				String str = e.getActionCommand();
+						switch(str)
+					{
+						case "curve": data.setType("Curve"); break;
+						case "rectangle": data.setType("Rectangle"); break;
+						case "roundRect": data.setType("RoundRect");break;
+						case "ellipse": data.setType("Ellipse"); break;
+						case "line": data.setType("Line"); break;
+						default: data.setType("Curve");
+					}
+						
+				
+			}
+		}
+	/* class ActionCombobox implements ActionListener
+	 {
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				JComboBox cb = (JComboBox)e.getSource();
+				String petName = (String)cb.getSelectedItem();
+//				cb.setActionCommand(petName);
+//				cb.addActionListener(aWidth);
+//				switch(petName)
+//				{
+//					case " 5 pt": 
+//					{
+////						cb.setActionCommand("Lines5");
+////						cb.addActionListener(aWidth);
+//						PData.width = 5;
+//						break;
+//					}
+//					case " 10 pt": 
+//					{
+////						cb.setActionCommand("Lines10");
+////						cb.addActionListener(aWidth);
+//						PData.width = 10;
+//						break;
+//					}
+//					case " 15 pt": 
+//					{
+//						cb.setActionCommand("Lines15");
+//						cb.addActionListener(aWidth);
+//						break;
+//					}
+//
+//				}
+			}
+	 }*/
+	
+	/* class ActionOpen implements ActionListener//class ActionSave implements ActionListener
+	 {
+		 @Override
+		 public void actionPerformed(ActionEvent e) 
+			{
+			 JFileChooser ch = new JFileChooser();
+			 ch.setCurrentDirectory(new File("путь к файлу"));
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG and JPEG", new String[] { "JPG", "JPEG" });
+				ch.setFileFilter(filter);
+				//не будет списка меню
+				ch.setAcceptAllFileFilterUsed(false);
+				// интовое статусное окно
+				int flag = ch.showDialog(null, "Open");//""Save
+				// статус закрытия окна 
+				if (flag == JFileChooser.APPROVE_OPTION)
+				{
+					File file = ch.getSelectedFile();
+					pp.bi = ImageIO.read(file);
+					ImageIO.write(pp.bi, "jpeg", file);
+					
+				}
+			}
+		 
+	 }*/
+}

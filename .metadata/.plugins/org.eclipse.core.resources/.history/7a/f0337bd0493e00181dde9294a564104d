@@ -1,0 +1,27 @@
+package MyVecorDraw;
+import java.awt.Color;
+
+public class PData 
+{
+	public String type = "Line";
+	public  Color color = Color.black;
+	public  int width = 1;
+	
+	private static PData instance = null;
+	private PData(String type, Color color, int width )
+	{
+		this. type = type;
+		this. color = color;
+		this. width = width;
+	}
+	public static PData getInstace(String type, Color color, int width )
+	{
+		if (instance == null)
+			instance = new PData(type, color, width);
+		
+		return instance;
+	}
+	/*public static String type = "Line";
+	public  static Color color = Color.black;
+	public  static int width = 1;*/
+}

@@ -1,0 +1,32 @@
+package MyVecorDraw;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class PMenuBar extends JMenuBar
+{
+	
+	public PMenuBar()
+	{
+	       // Создание выпадающего меню
+        JMenu file = new JMenu("Файл");
+        // Пункт меню "Открыть" с изображением
+        JMenuItem open = new JMenuItem("Открыть");
+        // Добавим в меню пункта open
+        file.add(open);
+        JMenuItem save = new JMenuItem("Сохранить");
+        // Добавление разделителя
+        file.addSeparator();
+        file.add(save);
+		add(file);
+	}
+	
+
+   
+}

@@ -1,0 +1,79 @@
+package MyVecorDraw;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JToolBar;
+
+public class PToolBar extends JToolBar
+{
+	public PToolBar ( PCommand cmd )
+	{
+		setBackground(Color.GREEN);
+		JToolBar btnToolbar = new JToolBar();
+		
+		JButton btnCur = new JButton("Кривая");
+		JButton btnRec = new JButton("Прямоугольник");
+		JButton btnCir = new JButton("Скругл");
+		JButton btnEli = new JButton("Элипс");
+		JButton btnLin = new JButton("Линия");
+
+		String wdthStr[] = { "Толщина - 5", "Толщина - 10", "Толщина - 15" };
+		JComboBox cb = new JComboBox(wdthStr);
+
+		JButton btnColor = new JButton("Выбор цвета");
+		JButton btnRed = new JButton("Red");
+		JButton btnYellow = new JButton("Yellow");
+		JButton btnGreen = new JButton("Green");
+		//JButton btnBlack = new JButton(colorBlack);
+		//JButton btnCyan = new JButton(colorCyan);
+
+		JButton btnExite = new JButton("Exit");
+
+		btnToolbar.add(btnCur);
+		btnToolbar.add(btnRec);
+		btnToolbar.add(btnCir);
+		btnToolbar.add(btnEli);
+		btnToolbar.add(btnLin);
+
+		btnToolbar.add(cb);
+
+		btnToolbar.add(btnColor);
+		btnToolbar.add(btnRed);
+		btnToolbar.add(btnYellow);
+		btnToolbar.add(btnGreen);
+		/*btnToolbar.add(btnBlack);
+		btnToolbar.add(btnCyan);*/
+		btnToolbar.add(btnExite);
+
+		btnCur.addActionListener(cmd.aType);
+		btnRec.addActionListener(cmd.aType);
+		btnCir.addActionListener(cmd.aType);
+		btnEli.addActionListener(cmd.aType);
+		btnLin.addActionListener(cmd.aType);
+
+		btnColor.addActionListener(cmd.aColor);
+		btnRed.addActionListener(cmd.aColor);
+		btnYellow.addActionListener(cmd.aColor);
+		btnGreen.addActionListener(cmd.aColor);
+		/*btnBlack.addActionListener(cmd.aBlack);
+		btnCyan.addActionListener(cmd.aCyan);*/
+
+		btnExite.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				System.exit(0);
+			}
+		});
+		add(btnToolbar, BorderLayout.BEFORE_LINE_BEGINS);
+		setBounds(10, 20, 920, 60);
+
+	}
+
+}

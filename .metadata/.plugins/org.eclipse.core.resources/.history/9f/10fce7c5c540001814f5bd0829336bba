@@ -1,0 +1,32 @@
+package MyPack;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+public class PLine implements IPShape
+{
+	int x, y, x1, y1;
+	int width;
+	int clr;
+	String type = "line";
+	
+	@Override
+	public void draw ( Graphics2D gg)
+	{
+		gg.setColor(new Color(clr));
+		gg.setStroke(new BasicStroke(width));
+		gg.drawLine(x, y, x1, y1);
+	}
+	@Override
+	public void init(int x, int y, int x1, int y1, Color clr, int width ) 
+	{
+		this.x = x;
+		this.y = y;
+		this.x1 = x1;
+		this. y1 = y1;
+		this.width = width;
+		this.clr = clr.getRGB();	
+	}
+
+}

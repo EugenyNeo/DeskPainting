@@ -1,0 +1,103 @@
+package MyVecorDraw;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+
+
+public class PCommand 
+{
+	//PData data = null;
+	PPanel pp = new PPanel();
+	public PCommand ()
+		{
+		
+		}
+	ActionWidth aWidth = new ActionWidth();
+	ActionColor aColor = new ActionColor();
+	ActionType aType = new ActionType();
+	ActionOpen aOpen = new ActionOpen();
+	ActionSave aSave = new ActionSave();	
+	class ActionColor implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			String str = e.getActionCommand();
+					switch(str)
+				{
+					case "btnRed": PData.color = Color.red; break;
+					case "btnGreen": PData.color = Color.green;break;
+					case "btnYellow": PData.color = Color.yellow;break;
+					default: PData.color = Color.black;
+				}
+			
+		}
+	}
+	 class ActionWidth implements ActionListener
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				String str = e.getActionCommand();
+						switch(str)
+					{
+						case "Lines5": PData.width = 5; break;
+						case "Lines10": PData.width = 10;break;
+						case "Lines15": PData.width = 15;break;
+						default: PData.width = 1;
+					}
+				
+			}
+		}
+	 class ActionType implements ActionListener
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				String str = e.getActionCommand();
+						switch(str)
+					{
+						case "btnCur": PData.type = "Curve"; break;
+						case "btnRec": PData.type = "Rectangle";break;
+						case "btnRdRect": PData.type = "RoundRect";break;
+						case "btnEli": PData.type = "Ellipse"; break;
+						case "btnLin": PData.type = "Line"; break;
+						default: PData.type = "Curve";
+					}
+				
+			}
+		}
+	 class ActionOpen implements ActionListener//class ActionSave implements ActionListener
+	 {
+		 @Override
+		 public void actionPerformed(ActionEvent e) 
+			{
+			 JFileChooser ch = new JFileChooser();
+			 ch.setCurrentDirectory(new File("путь к файлу"));
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG and JPEG", new String[] { "JPG", "JPEG" });
+				ch.setFileFilter(filter);
+				//не будет списка меню
+				ch.setAcceptAllFileFilterUsed(false);
+				// интовое статусное окно
+				int flag = ch.showDialog(null, "Open");//""Save
+				// статус закрытия окна 
+				if (flag == JFileChooser.APPROVE_OPTION)
+				{
+					File file = ch.getSelectedFile();
+					pp.bi = ImageIO.read(file);
+					ImageIO.write(pp.bi, "jpeg", file);
+					
+				}
+			}
+		 
+	 }
+}

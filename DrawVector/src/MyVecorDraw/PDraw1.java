@@ -1,0 +1,54 @@
+package MyVecorDraw;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
+public class PDraw1 extends JPanel //implements MouseListener, MouseMotionListener
+{
+	int x;
+	int y;
+//	int x2, y2; 
+	ArrayList<IShape> pp = new ArrayList<IShape>();
+	Graphics2D gg;
+	//BufferedImage bi = new BufferedImage(1010, 620, BufferedImage.SCALE_DEFAULT);
+
+	public PDraw1(PCommand cmd)
+	{
+
+		setBounds(220,10,1010, 620);
+		setBackground(Color.white);
+		//Graphics gr = this.getGraphics();
+		addMouseListener(cmd.aDraw);
+		addMouseMotionListener(cmd.aDraw);
+		//Graphics2D gg = (Graphics2D) bi.getGraphics();
+		//Graphicd2D gg = (Graphics2D) gr;
+		//gg.setColor(Color.white);
+		
+		//gg.fillRect(220, 10, 1010, 620);
+		//repaint();
+	}
+
+
+	@Override
+	public void paint(Graphics g)
+	{
+		
+		super.paint(g);
+		Graphics2D gg = (Graphics2D) g;//getGraphics();
+		for(IShape  shp : pp)
+		{
+			
+			shape.draw(gg);
+		}
+	}
+
+}
+

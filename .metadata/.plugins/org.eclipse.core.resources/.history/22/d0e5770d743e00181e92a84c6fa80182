@@ -1,0 +1,49 @@
+package MyPack;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.RoundRectangle2D;
+
+public class PRoundRect implements IShape
+{
+	int x,y,x2,y2;
+	int width;
+	Color clr;
+	
+	public PRoundRect( int x, int y, int x2, int y2, int width, Color clr )
+	{
+		this.x = x;
+		this.y = y;
+		this.x2 = x2;
+		this.y2 = y2;
+		this.clr = clr;
+		this.width = width;
+	}
+	@Override
+	public void draw ( Graphics2D gg)
+	{
+		gg.setColor(clr);
+		gg.setStroke(new BasicStroke(width));
+		if ((x2 < x && y > y2 ) || (x < x2 && y > y2))
+		{
+			int xd = x;
+			x = x2;
+			x2 = xd;
+			
+			xd = y ;
+			y = y2;
+			y2 = xd;
+		}
+		else
+		if (x2 < x && y < y2) 
+				{
+					int yd = y;
+					y = y2;
+					y2 = yd;
+
+				}
+		gg.draw(new RoundRectangle2D.Float(x, y,  x2-x, y2 - y, 50, 30));
+	}
+
+}

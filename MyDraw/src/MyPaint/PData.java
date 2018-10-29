@@ -1,0 +1,9 @@
+package MyPaint;
+import java.awt.Color;
+
+public class PData 
+{
+	String type = "Line";
+	Color color = Color.black;
+	int width = 1;
+}

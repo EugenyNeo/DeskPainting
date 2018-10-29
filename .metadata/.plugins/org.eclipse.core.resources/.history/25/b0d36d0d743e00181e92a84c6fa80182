@@ -1,0 +1,32 @@
+package MyPack;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+public class PFileChooser 
+{
+	public void PFileChoosrer()
+	{
+	
+		/*PPanel pp = new PPanel();	
+		JFileChooser fileopen = new JFileChooser();
+			BufferedImage img = null;
+			fileopen.setCurrentDirectory(new File("C:\\путь\\к_вашей\\папке\\"));
+			FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG and JPEG", new String[] { "JPG", "JPEG" });
+			fileopen.setFileFilter(filter);
+			fileopen.setAcceptAllFileFilterUsed(false);
+			int flag = fileopen.showDialog(null, "Save");
+			if (flag == JFileChooser.APPROVE_OPTION)
+			{
+				File file = fileopen.getSelectedFile();
+				ImageIO.read(file);
+				ImageIO.write(pp.bi, "jpeg", file);
+				
+			}*/
+	}
+	
+}

@@ -1,0 +1,64 @@
+package MyPack;
+import java.awt.Color;
+
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class PColor extends JPanel
+{
+	//PData data = null;
+
+	public PColor (  PCommand cmd)
+	{
+		
+		
+		setLayout(null);
+		setBackground(Color.GREEN);
+		
+		JButton btnRed = new JButton("Red");
+		JButton btnYellow = new JButton("Yellow");
+		JButton btnGreen = new JButton("Green");
+		
+		btnRed.setBounds( 10, 20, 180, 40 );
+		btnRed.setActionCommand("red");
+		btnRed.addActionListener(cmd.aColor);
+		
+		btnYellow.setBounds( 10, 80, 180, 40 );
+		btnYellow.setActionCommand("yellow");
+		btnYellow.addActionListener(cmd.aColor);
+		
+		btnGreen.setBounds( 10, 140, 180, 40 );
+		btnGreen.setActionCommand("green");
+		btnGreen.addActionListener(cmd.aColor);
+		
+		add(btnRed);
+		add(btnYellow);
+		add(btnGreen);
+		
+		/*btnRed.addActionListener(new ActionListener()
+				{
+			public void actionPerformed(ActionEvent e)               
+			{                                                        
+				PData.color = Color.red;
+			}                                                        
+		}); 
+		
+		btnYellow.addActionListener(new ActionListener()
+				{
+			public void actionPerformed(ActionEvent e)               
+			{                                                        
+				PData.color = Color.yellow;
+			}                                                        
+		}); 
+		
+		btnGreen.addActionListener(new ActionListener()
+				{
+			public void actionPerformed(ActionEvent e)               
+			{                                                        
+				PData.color = Color.green;
+			}                                                        
+		}); */
+		
+	}
+}
